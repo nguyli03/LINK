@@ -13,19 +13,14 @@ def recipes():
     ingredients = request.form['ingredients']
     ingredients = ingredients.replace(' ','%20')
     res = requests.get("https://api.edamam.com/search?q="+ingredients+"&app_id=7f091258&app_key=c3905a1267e3c6a8fa220231cb84004e&from=0&to=3")
-    # print(res.json())
+    print(res.json())
     return render_template('recipes.html', res=res.json()['hits'])
 
-@app.route('/macro', methods=['POST'])
-def macro():
-    pass
-
-@app.route('/favorite', methods=['POST'])
-def saveFav():
-    newFav = request.form(['addingFavorite'])
-
-
-    return render_template('favorites.html', res=res.json()#####)
+# @app.route('/favorites', methods=['POST'])
+# def saveFav():
+#     newFav = requests.form(['recipeName'])
+#     print(newFav)
+#     return render_template('favorites.html', res=newFav)
 
 
 if __name__=='__main__':
