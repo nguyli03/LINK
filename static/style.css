@@ -13,7 +13,7 @@ header {
 }
 
 main {
-  margin-top: 20px;
+  margin: 20px;
 }
 
 h1 {
@@ -33,13 +33,13 @@ h3, p, img {
   clear: both;
 }
 
-.menu ul {
-  float: right;
-}
-
 ul {
   display: inline-block;
   padding: 0;
+}
+
+.menu ul {
+  float: right;
 }
 
 .btn {
@@ -66,6 +66,10 @@ form {
 
 .foot {
   text-align: center;
+}
+
+.pagetwo {
+  color: navy;
 }
 
 @media screen and (max-width: 768px) {
