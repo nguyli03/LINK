@@ -3,29 +3,30 @@
   <meta charset="UTF-8">
   <meta name="author" content="Linh, Ian, Nell, Katie">
   <meta name="description" content="FOOOOOOOD!">
-  <link rel="stylesheet" type="text/css" href="/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <header>
+  <header class="clearfix">
     <h1>LINK</h1>
     <ul class="menu">
-      <li><a href="/index">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact Us</a></li>
+      <li class="btn"><a href="/index">Home</a></li>
+      <li class="btn"><a href="/about">About</a></li>
+      <li class="btn"><a href="/contact">Contact Us</a></li>
     </ul>
   </header>
   <main>
     <h2>Recipes</h2>
-    {% for recipe in res %}
+    <!--{% for recipe in res %}
       <h3>{{ recipe.recipe.label }}</h3>
       <img src="{{ recipe.recipe.image }}" alt="food">
       <ul>{{ recipe.recipe.ingredients }}</ul>
-    {% endfor %}
-
+    {% endfor %}-->
   </main>
   <footer class="clearfix">
-    <p>&copy; 2018 LINK</p>
+    <p class="foot">&copy; 2018 LINK</p>
   </footer>
 </body>
