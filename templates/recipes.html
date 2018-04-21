@@ -4,50 +4,62 @@
   <meta name="author" content="Linh, Ian, Nell, Katie">
   <meta name="description" content="FOOOOOOOD!">
   <link rel="stylesheet" type="text/css" href="/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
   <header>
     <h1>LINK</h1>
     <ul class="menu">
-      <li><a href="/index">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact Us</a></li>
+      <li>
+        <a href="/index">Home</a>
+      </li>
+      <li>
+        <a href="/about">About</a>
+      </li>
+      <li>
+        <a href="/contact">Contact Us</a>
+      </li>
     </ul>
   </header>
   <main>
     <h2>Recipes</h2>
     {% for recipe in res %}
-      <h3>{{ recipe.recipe.label }}</h3>
+    <h3>{{ recipe.recipe.label }}</h3>
 
-      <img src="{{ recipe.recipe.image }}" alt="food">
+    <img src="{{ recipe.recipe.image }}" alt="food">
 
-      <p><b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g</p>
+    <p>
+      <b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g</p>
 
-      <h4>Health Labels</h4>
-      <ul>
-        {% for lab in recipe.recipe.healthLabels %}
-        <li>{{ lab }}</li>
-        {% endfor %}
-      </ul>
+    <h4>Health Labels</h4>
+    <ul>
+      {% for lab in recipe.recipe.healthLabels %}
+      <li>{{ lab }}</li>
+      {% endfor %}
+    </ul>
 
-      <h4>Ingredients</h4>
-      <ul>
-        {% for ingred in recipe.recipe.ingredients %}
-          <li>{{ ingred.text }}</li>
-        {% endfor %}
-      </ul>
+    <h4>Ingredients</h4>
+    <ul>
+      {% for ingred in recipe.recipe.ingredients %}
+      <li>{{ ingred.text }}</li>
+      {% endfor %}
+    </ul>
 
-      <details>
-        <summary><b>Nutrition value</b></summary>
+    <details>
+      <summary>
+        <b>Nutrition value</b>
+      </summary>
       <ul>
         {% for nutrition in recipe.recipe.digest %}
-          <li>{{ nutrition.label }}: {{ (nutrition.total)|round|int }}g</li>
+        <li>{{ nutrition.label }}: {{ (nutrition.total)|round|int }}g</li>
         {% endfor %}
       </ul>
+    </details>
+
     {% endfor %}
-  </details>
+
 
   </main>
   <footer class="clearfix">
