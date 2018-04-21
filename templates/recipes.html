@@ -17,8 +17,17 @@
   </header>
   <main>
     <h2>Recipes</h2>
-    {%for recipe in res%}
+    {% for recipe in res %}
       <h3>{{ recipe.recipe.label }}</h3>
+
+      <details>
+        <summary>Percent daily value</summary>
+        <ul>
+        {% for daily in recipe.recipe.totalDaily %}
+          <li>{{ daily.label }}: {{ daily.quantity }}%</li>
+        {% endfor %}
+        </ul>
+      </details>
     {% endfor %}
 
   </main>
