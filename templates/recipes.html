@@ -30,14 +30,14 @@
       <b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g</p>
 
     <h4>Health Labels</h4>
-    <ul>
+    <ul class="clearfix">
       {% for lab in recipe.recipe.healthLabels %}
       <li>{{ lab }}</li>
       {% endfor %}
     </ul>
 
     <h4>Ingredients</h4>
-    <ul>
+    <ul class="clearfix">
       {% for ingred in recipe.recipe.ingredients %}
       <li>{{ ingred.text }}</li>
       {% endfor %}

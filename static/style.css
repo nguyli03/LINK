@@ -70,13 +70,16 @@ form {
     margin: 10px;
   }
 
+  h1 {
+    margin: 5px;
+  }
 
   ul {
     margin-left: 10px;
   }
 
   ul .btn {
-    margin: 1px 5px;
+    margin: 10px;
   }
 
   form {
