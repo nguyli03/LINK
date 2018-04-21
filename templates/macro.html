@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="author" content="Linh, Ian, Nell, Katie">
   <meta name="description" content="FOOOOOOOD!">
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="static/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -16,14 +16,9 @@
     </ul>
   </header>
   <main>
-    <h2>Recipes</h2>
-    {%for recipe in res%}
-      <h3>{{ recipe.recipe.label }}</h3>
-       <!-- form method="post" action="recipes"> -->
-    {% endfor %}
-
+    <h2>Macro Counts</h2>
+  
   </main>
   <footer class="clearfix">
     <p>&copy; 2018 LINK</p>
   </footer>
-</body>
