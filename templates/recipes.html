@@ -4,6 +4,7 @@
   <meta name="author" content="Linh, Ian, Nell, Katie">
   <meta name="description" content="FOOOOOOOD!">
   <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -17,9 +18,20 @@
   </header>
   <main>
     <h2>Recipes</h2>
-    {%for recipe in res%}
+    {% for recipe in res %}
       <h3>{{ recipe.recipe.label }}</h3>
-       <!-- form method="post" action="recipes"> -->
+
+      <img src="{{ recipe.recipe.image }}" alt="food">
+      <ul>{{ recipe.recipe.ingredients }}</ul>
+
+      <details>
+        <summary>Percent daily value</summary>
+        <ul>
+        {% for daily in recipe.recipe.totalDaily %}
+          <li>{{ daily.label }}: {{ daily.quantity }}%</li>
+        {% endfor %}
+        </ul>
+      </details>
     {% endfor %}
 
   </main>
