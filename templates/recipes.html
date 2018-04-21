@@ -20,8 +20,18 @@
     <h2>Recipes</h2>
     {% for recipe in res %}
       <h3>{{ recipe.recipe.label }}</h3>
+
       <img src="{{ recipe.recipe.image }}" alt="food">
       <ul>{{ recipe.recipe.ingredients }}</ul>
+
+      <details>
+        <summary>Percent daily value</summary>
+        <ul>
+        {% for daily in recipe.recipe.totalDaily %}
+          <li>{{ daily.label }}: {{ daily.quantity }}%</li>
+        {% endfor %}
+        </ul>
+      </details>
     {% endfor %}
 
   </main>
