@@ -36,6 +36,9 @@ h3, p, img {
 ul {
   display: inline-block;
   padding: 0;
+}
+
+.menu ul {
   float: right;
 }
 
