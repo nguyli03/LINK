@@ -1,44 +1,58 @@
-<!DOCTYPE html>
-  <head>
-    <title>LINK</title>
-    <meta charset="UTF-8">
-    <meta name="author" content="Linh, Ian, Nell, Katie">
-    <meta name="description" content="FOOOOOOOD!">
-    <link rel="stylesheet" type="text/css" href="/style.css">
-      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+<head>
+  <title>LINK</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Linh, Ian, Nell, Katie">
+  <meta name="description" content="FOOOOOOOD!">
+  <link rel="stylesheet" type="text/css" href="..//style.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <h1>LINK</h1>
+    <ul class="menu">
+      <li><a href="/index">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
+  </header>
+  <main>
+    <form class="" action="favorites" method="POST">
+      <h2>Recipes</h2>
+      {% for recipe in res %}
+        <h3>{{ recipe.recipe.label }}</h3>
 
-  <body>
-    <header>
-      <h1>LINK</h1>
-      <ul class="menu">
-        <li><a href="/index">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-      </ul>
-    </header>
-    <h1>hellow wrold</h1>
-    <!-- <h3 name='recipeName'>{{ recipe.recipe.label }}</h3> -->
+        <img src="{{ recipe.recipe.image }}" alt="food">
 
-      <!-- <form class="" action="favorites" method="POST">
-        <h2>Recipes</h2>
-          <h3 name='recipeName'>{{ recipe.recipe.label }}</h3>
-          <img src="{{ recipe.recipe.image }}" alt="food">
-          <ul>{{ recipe.recipe.ingredients }}</ul>
-          <details>
-            <summary>Percent daily value</summary>
-            <ul>
-            {% for daily in recipe.recipe.totalDaily %}
-              <li>{{ daily.label }}: {{ daily.quantity }}%</li>
-            {% endfor %}
-            </ul>
-            <button type="button" class="btn btn-danger" id="addFav">Add to Favorites</button>
-        </form> -->
+        <p><b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g </p>
+        <input type="submit" class="btn btn-danger" value="Add to Favorites"></input>
 
-    <footer class="clearfix">
-      <p>&copy; 2018 LINK</p>
-    </footer>
-  </body>
+        <h4>Health Labels</h4>
+        <ul>
+          {% for lab in recipe.recipe.healthLabels %}
+          <li>{{ lab }}</li>
+          {% endfor %}
+        </ul>
+        <h4>Ingredients</h4>
+        <ul>
+          {% for ingred in recipe.recipe.ingredients %}
+            <li>{{ ingred.text }}</li>
+          {% endfor %}
+        </ul>
 
-</html>
+        <details>
+          <summary><b>Nutrition value</b></summary>
+        <ul>
+          {% for nutrition in recipe.recipe.digest %}
+            <li>{{ nutrition.label }}: {{ (nutrition.total)|round|int }}g</li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+      </details>
+    </form>
+  </main>
+
+  <footer class="clearfix">
+    <p>&copy; 2018 LINK</p>
+  </footer>
+</body>
