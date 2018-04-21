@@ -17,7 +17,12 @@
   </header>
   <main>
     <h2>Recipes</h2>
+    {% for recipe in res.hits %}
+      <h3>{{ recipe.recipe.label }}</h3>
+    {% endfor %}
+
   </main>
   <footer class="clearfix">
     <p>&copy; 2018 LINK</p>
   </footer>
+</body>
