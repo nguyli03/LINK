@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response, jsonify
+from flask import Flask, render_template, request, Response, jsonify, session
 import requests
 import json
 import os
@@ -43,6 +43,7 @@ def loginHelper():
     res = db.execute("""SELECT username, password from users where username = '%s' and password = '%s';"""%(username,hashed_password))
     res= res.fetchall()
     if len(res) > 0:
+        session['username'] = username
         return render_template('index.html')
     return render_template('login.html',res = 'The information is incorrect, please try again')
 
@@ -62,6 +63,7 @@ def signupHelper():
     else:
         db.execute("""INSERT into users(username, password) VALUES ('%s','%s');"""%(username,hashed_password))
         db.commit()
+    session['username'] = username
     return render_template('index.html')
 
 if __name__=='__main__':
