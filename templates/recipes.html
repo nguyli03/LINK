@@ -27,8 +27,9 @@
       <details>
         <summary>Percent daily value</summary>
         <ul>
-        {% for daily in recipe.recipe.totalDaily %}
-          <li>{{ daily.label }}: {{ daily.quantity }}%</li>
+        {% for daily in recipe.recipe.totalNutrients %}
+          <li>{{daily}}</li>
+          <li>{{ daily.label }}: {{ daily.quantity }}g</li>
         {% endfor %}
         </ul>
       </details>
