@@ -13,8 +13,8 @@
   <div class="login">
     <div class="heading">
       <h2>Login</h2>
-      <form action="loginHelper" methods = 'POST'>
-        {%if len(res)>0 %}
+      <form action="loginHelper" method = 'POST'>
+        {%if res|length >0 %}
         <p>res</p>
         {%endif%}
         <div class="input-group input-group-lg">

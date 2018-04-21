@@ -39,8 +39,8 @@ def login():
 def loginHelper():
     username = request.form['username']
     password = request.form['password']
-    hashed_password = hashlib.sha512(item['password'].encode('utf-8') + salt.encode('utf-8')).hexdigest()
-    res = db.execute("""SELECT username, password from user where username = '%s' and password = '%s';"""%(username,hashed_password))
+    hashed_password = hashlib.sha512(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
+    res = db.execute("""SELECT username, password from users where username = '%s' and password = '%s';"""%(username,hashed_password))
     res= res.fetchall()
     if len(res) > 0:
         return render_template('index.html')
@@ -54,8 +54,8 @@ def signup():
 def signupHelper():
     username = request.form['username']
     password = request.form['password']
-    hashed_password = hashlib.sha512(item['password'].encode('utf-8') + salt.encode('utf-8')).hexdigest()
-    res = db.execute("""SELECT id, password from %s where username = '%s';"""%(item['role'], item['username']))
+    hashed_password = hashlib.sha512(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
+    res = db.execute("""SELECT username, password from users where username = '%s';"""%(username))
     res = res.fetchall()
     if len(res) >0:
         return render_template('login.html', res = 'You have already signed up. Please login here')
