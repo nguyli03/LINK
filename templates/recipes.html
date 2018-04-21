@@ -17,7 +17,7 @@
   </header>
   <main>
     <h2>Recipes</h2>
-    {% for recipe in res.hits %}
+    {%for recipe in res%}
       <h3>{{ recipe.recipe.label }}</h3>
     {% endfor %}
 

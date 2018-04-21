@@ -8,12 +8,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/recipes', method = ['POST']):
+@app.route('/recipes', methods = ['POST'])
 def recipes():
     ingredients = request.form['ingredients']
     ingredients = ingredients.replace(' ','%20')
-    res = requests.get("https://api.edamam.com/search?q="+ingredients+"%20breat,tomato&app_id=7f091258&app_key=c3905a1267e3c6a8fa220231cb84004e&from=0&to=1")
-    return render_template('index.html')
+    res = requests.get("https://api.edamam.com/search?q="+ingredients+"&app_id=7f091258&app_key=c3905a1267e3c6a8fa220231cb84004e&from=0&to=3")
+    print(res.json())
+    return render_template('recipes.html', res=res.json()['hits'])
+
 
 if __name__=='__main__':
     app.run(debug=True)
