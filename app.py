@@ -50,7 +50,7 @@ def loginHelper():
 def signup():
     return render_template('signup.html')
 
-@app.route('/signupHelper', methods=['POST'])
+@app.route('/signupHelper', methods=['GET', 'POST'])
 def signupHelper():
     username = request.form['username']
     password = request.form['password']
