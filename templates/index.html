@@ -20,9 +20,10 @@
   </header>
   <main>
     <h2>Ingredients you have in your fridge could make a tasty meal, without having to leave your house! Type in the ingredients you currently have and you will receive a list of delicious recipes.</h2>
-    <form>
-      <textarea class="form-control" id="ingredients" name="ingredients" value="" placeholder="i.e. Rice, celery, beef, cream of chicken soup, carrots, peas, etc." rows="10"></textarea>
-      <input type="submit" class="btn" value="Submit">
+    <form action='recipes' method="POST">
+      <p>Type in your ingredients</p>
+      <textarea id="ingredients" name="ingredients" value="" placeholder="i.e. Rice, celery, beef, cream of chicken soup, carrots, peas, etc." cols="40" rows="15"></textarea>
+      <input type="submit" value="Submit">
     </form>
   </main>
   <footer class="clearfix">
