@@ -26,22 +26,24 @@
 
     <img src="{{ recipe.recipe.image }}" alt="food">
 
-    <p>
-      <b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g</p>
+    <p><b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g</p>
+    <div class="clearfix">
+      <h4>Health Labels</h4>
+      <ul>
+        {% for lab in recipe.recipe.healthLabels %}
+        <li>{{ lab }}</li>
+        {% endfor %}
+      </ul>
+    </div>
 
-    <h4>Health Labels</h4>
-    <ul class="clearfix">
-      {% for lab in recipe.recipe.healthLabels %}
-      <li>{{ lab }}</li>
-      {% endfor %}
-    </ul>
-
-    <h4>Ingredients</h4>
-    <ul class="clearfix">
-      {% for ingred in recipe.recipe.ingredients %}
-      <li>{{ ingred.text }}</li>
-      {% endfor %}
-    </ul>
+    <div class="clearfix">
+      <h4>Ingredients</h4>
+      <ul class="clearfix">
+        {% for ingred in recipe.recipe.ingredients %}
+        <li>{{ ingred.text }}</li>
+        {% endfor %}
+      </ul>
+    </div>
 
     <details>
       <summary>
@@ -58,7 +60,7 @@
 
 
   </main>
-  <footer class="clearfix">
+  <footer>
     <p class="foot">&copy; 2018 LINK</p>
   </footer>
 </body>
