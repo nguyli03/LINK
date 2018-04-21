@@ -1,8 +1,8 @@
 # LINK
 
-An application to help find recipes for ingredients you have.
+An [application](https://linktohealth.herokuapp.com) to help find recipes for ingredients you have.
 
-[![Heroku](https://heroku-badge.herokuapp.com/?app=nordicshift)](https://linktohealth.herokuapp.com)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=linktohealth)](https://linktohealth.herokuapp.com)
 
 ## Getting started
 ---
