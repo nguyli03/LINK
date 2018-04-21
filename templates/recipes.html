@@ -22,17 +22,32 @@
       <h3>{{ recipe.recipe.label }}</h3>
 
       <img src="{{ recipe.recipe.image }}" alt="food">
-      <ul>{{ recipe.recipe.ingredients }}</ul>
+
+      <p><b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g</p>
+
+      <h4>Health Labels</h4>
+      <ul>
+        {% for lab in recipe.recipe.healthLabels %}
+        <li>{{ lab }}</li>
+        {% endfor %}
+      </ul>
+
+      <h4>Ingredients</h4>
+      <ul>
+        {% for ingred in recipe.recipe.ingredients %}
+          <li>{{ ingred.text }}</li>
+        {% endfor %}
+      </ul>
 
       <details>
-        <summary>Percent daily value</summary>
-        <ul>
-        {% for daily in recipe.recipe.totalDaily %}
-          <li>{{ daily.label }}: {{ daily.quantity }}%</li>
+        <summary><b>Nutrition value</b></summary>
+      <ul>
+        {% for nutrition in recipe.recipe.digest %}
+          <li>{{ nutrition.label }}: {{ (nutrition.total)|round|int }}g</li>
         {% endfor %}
-        </ul>
-      </details>
+      </ul>
     {% endfor %}
+  </details>
 
   </main>
   <footer class="clearfix">
