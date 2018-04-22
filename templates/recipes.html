@@ -11,21 +11,20 @@
   <header>
     <h1>LINK</h1>
     <ul class="menu">
-      <li><a href="/index">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="index">Home</a></li>
+      <li><a href="about">About</a></li>
+      <li><a href="contactUs">Contact Us</a></li>
     </ul>
   </header>
   <main>
-    <form class="" action="favorites" method="POST">
+    <form action="favorites" method="POST">
       <h2>Recipes</h2>
       {% for recipe in res %}
-        <h3>{{ recipe.recipe.label }}</h3>
-
+        <h3 name="recipeName" id="recipeName">{{ recipe.recipe.label }}</h3>
         <img src="{{ recipe.recipe.image }}" alt="food">
+        <p><b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}cal </p>
 
-        <p><b>Calories:</b> {{ (recipe.recipe.calories)|round|int }}g </p>
-        <input type="submit" class="btn btn-danger" value="Add to Favorites"></input>
+        <input type="submit" class="btn btn-danger" value="Add to Favorites">
 
         <h4>Health Labels</h4>
         <ul>

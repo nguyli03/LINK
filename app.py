@@ -19,9 +19,20 @@ def recipes():
 
 @app.route('/favorites', methods=['POST'])
 def saveFav():
-    newFav = request.form['recipeName']
-    print(newFav)
+    newFav = request.values('recipeName')
+    print("NEW FAVORITE:", newFav)
     return render_template('favorites.html', res=newFav)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contactUs')
+def contactUs():
+    return render_template('contactUs.html')
+
+# @app.route('/save', methods=['POST'])
+# def saveToDb():
 
 
 if __name__=='__main__':
